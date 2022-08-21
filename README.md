@@ -1,1 +1,1 @@
-# digitalnews-web-scrawler
+# digitalnews-web-crawler
