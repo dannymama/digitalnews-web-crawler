@@ -303,7 +303,7 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
 
     
 #Document docx
-times = time.strftime("%m-%d-at %H:%M") 
+times = time.strftime("%m-%d-at %H%M") 
 document = Document('C:\\Users\\01539\\Desktop\\diginews\\default.docx') ##create a default docx
 document.add_heading('KEYWORDS: %s'%(keywords[0]))
 for j in contentall:
