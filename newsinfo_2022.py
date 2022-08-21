@@ -1,4 +1,3 @@
-
 #For tiny url
 from __future__ import with_statement
 import contextlib
@@ -57,6 +56,7 @@ while True:
 
 print('Loading...')
 
+#Request header
 hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
        'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
@@ -82,7 +82,9 @@ technews = {} #科技新報
 
 contentall = {} #Nested in nested structure
 timesa = time.strftime("%M")
-    
+
+#Define output file path
+director = 'C:\\Users\\01539\\Desktop\\diginews' 
 
 for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
 
@@ -112,13 +114,13 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
                 if 'data-src' in str(m.img):
                     chn[title][3] += m.img['data-src'] #append image url
                     try:
-                        urlretrieve(chn[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) #download image
+                        urlretrieve(chn[title][3], director + '\\img\\%s.jpg'%(title)) #download image
                     except:
                         pass
                 elif 'src' in str(m.img):
                     chn[title][3] += m.img['src']
                     try:
-                        urlretrieve(chn[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) 
+                        urlretrieve(chn[title][3], director + '\\img\\%s.jpg'%(title)) 
                     except:
                         pass
                 else:
@@ -155,13 +157,13 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
                 if 'data-src' in str(m.img):
                     bnext[title][3] += m.img['data-src'] #append image url
                     try:
-                        urlretrieve(bnext[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) #download image
+                        urlretrieve(bnext[title][3], director + '\\img\\%s.jpg'%(title)) #download image
                     except:
                         pass
                 elif 'src' in str(m.img):
                     bnext[title][3] += m.img['src']
                     try:
-                        urlretrieve(bnext[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) 
+                        urlretrieve(bnext[title][3], director + '\\img\\%s.jpg'%(title)) 
                     except:
                         pass
                 else:
@@ -197,13 +199,13 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
                 if 'data-src' in str(m.img):
                     technews[title][3] += m.img['data-src'] #append image url
                     try:
-                        urlretrieve(technews[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) #download image
+                        urlretrieve(technews[title][3], director + '\\img\\%s.jpg'%(title)) #download image
                     except:
                         pass
                 elif 'src' in str(m.img):
                     technews[title][3] += m.img['src']
                     try:
-                        urlretrieve(technews[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) 
+                        urlretrieve(technews[title][3], director + '\\img\\%s.jpg'%(title)) 
                     except:
                         pass
                 else:
@@ -240,13 +242,13 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
                 if 'data-src' in str(m.img):
                     eco[title][3] += m.img['data-src'] #append image url
                     try:
-                        urlretrieve(eco[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) #download image
+                        urlretrieve(eco[title][3], director + '\\img\\%s.jpg'%(title)) #download image
                     except:
                         pass
                 elif 'src' in str(m.img):
                     eco[title][3] += m.img['src']
                     try:
-                        urlretrieve(eco[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) 
+                        urlretrieve(eco[title][3], director + '\\img\\%s.jpg'%(title)) 
                     except:
                         pass
                 else:
@@ -282,13 +284,13 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
                 if 'data-src' in str(m.img):
                     ctime[title][3] += m.img['data-src'] #append image url
                     try:
-                        urlretrieve(ctime[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) #download image
+                        urlretrieve(ctime[title][3], director + '\\img\\%s.jpg'%(title)) #download image
                     except:
                         pass
                 elif 'src' in str(m.img):
                     ctime[title][3] += m.img['src']
                     try:
-                        urlretrieve(ctime[title][3], 'C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(title)) 
+                        urlretrieve(ctime[title][3], director + '\\img\\%s.jpg'%(title)) 
                     except:
                         pass
                 else:
@@ -304,19 +306,19 @@ for i in soup.findAll('div', {'class':'Gx5Zad fP1Qef xpd EtOod pkphOe'}):
     
 #Document docx
 times = time.strftime("%m-%d-at %H%M") 
-document = Document('C:\\Users\\01539\\Desktop\\diginews\\default.docx') ##create a default docx
+document = Document(director + '\\default.docx') ##create a default docx
 document.add_heading('KEYWORDS: %s'%(keywords[0]))
 for j in contentall:
     for k in contentall[j]:
         document.add_paragraph(k) #Title list
 
 for j in contentall:
-    document.save('C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))    
+    document.save(director + '\\news_%s.docx'%(times))    
     print('★' +j, ': %d articles'%(len(contentall[j])))
     
     document.add_heading('★' +j)
     for k in contentall[j]:
-        document.save('C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))
+        document.save(director + '\\news_%s.docx'%(times))
         document.add_heading(k) #Title
         document.add_paragraph(contentall[j][k][2]) #Time
         contentall[j][k][0] = make_tiny(contentall[j][k][0])
@@ -325,7 +327,7 @@ for j in contentall:
         document.add_paragraph(contentall[j][k][0]) #URL
 
         try:
-            document.add_picture('C:\\Users\\01539\\Desktop\\diginews\\img\\%s.jpg'%(k), height = Inches(2))
+            document.add_picture(director + '\\img\\%s.jpg'%(k), height = Inches(2))
         except:
             pass
 
@@ -333,18 +335,18 @@ for j in contentall:
         document.add_paragraph('====================================')
 
 
-document.save('C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))
+document.save(director + '\\news_%s.docx'%(times))
 
 # Save As PDF
 wdFormatPDF = 17
 word = comtypes.client.CreateObject('Word.Application')
-doc = word.Documents.Open('C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))
-doc.SaveAs('C:\\Users\\01539\\Desktop\\diginews\\news_%s.pdf'%(times), FileFormat=wdFormatPDF)
+doc = word.Documents.Open(director + '\\news_%s.docx'%(times))
+doc.SaveAs(director + '\\news_%s.pdf'%(times), FileFormat=wdFormatPDF)
 doc.Close()
 word.Quit()
 
 
-print('\nCompleted...\n File path:\n', 'C:\\Users\\01539\\Desktop\\diginews\\news_%s.pdf'%(times))
+print('\nCompleted...\n File path:\n', director + '\\news_%s.pdf'%(times))
 timesb = time.strftime("%M")
 
 long = int(timesb) - int(timesa)
