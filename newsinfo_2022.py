@@ -344,7 +344,7 @@ doc.Close()
 word.Quit()
 
 
-print('\nCompleted...\n File path:\n', 'C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))
+print('\nCompleted...\n File path:\n', 'C:\\Users\\01539\\Desktop\\diginews\\news_%s.pdf'%(times))
 timesb = time.strftime("%M")
 
 long = int(timesb) - int(timesa)
