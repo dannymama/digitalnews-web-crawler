@@ -35,7 +35,7 @@ import comtypes.client
 #For transforming image format
 from PIL import Image
 
-
+#Initialize/customize news search criteria
 keywords = []
 paths = ['']
 num = 100
