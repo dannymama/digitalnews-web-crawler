@@ -337,9 +337,6 @@ document.save('C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))
 
 # Save As PDF
 wdFormatPDF = 17
-infolder='C:\\Users\\01539\\Desktop\\diginews'
-out_folder ='C:\\Users\\01539\\Desktop\\diginews'
-
 word = comtypes.client.CreateObject('Word.Application')
 doc = word.Documents.Open('C:\\Users\\01539\\Desktop\\diginews\\news_%s.docx'%(times))
 doc.SaveAs('C:\\Users\\01539\\Desktop\\diginews\\news_%s.pdf'%(times), FileFormat=wdFormatPDF)
